@@ -39,7 +39,7 @@
 
 ## 🛠️ Configuration et Utilisation
 
-- Utilisez `/setprotection` pour configurer les protections de base
+- Retrouver dans le dossier `/database` le fichier `sql` pour le bon fonctionnement du bot.
 - Personnalisez le système de vérification avec `!verify`
 - Accédez à l'aide complète avec `!help`
 
