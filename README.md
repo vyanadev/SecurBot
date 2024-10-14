@@ -31,6 +31,7 @@
    DB_USER=votre_utilisateur_mysql
    DB_PASSWORD=votre_mot_de_passe_mysql
    DB_NAME=votre_nom_de_base_de_donnees
+   DB_PORT=votre_port,
    ```
 4. Lancez le bot
    ```sh
