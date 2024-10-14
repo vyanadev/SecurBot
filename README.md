@@ -48,9 +48,9 @@
 - `!antiraid` : Configure les paramètres de protection anti-raid
 - `!whitelist` : Gère la liste blanche des utilisateurs de confiance
 
-## 🌐 Support Multilingue
+## 🌐 Support Multilingue Pour toute aide.
 
-SecurBot prend en charge le français et l'anglais. La langue est automatiquement détectée pour chaque serveur et peut être modifiée via les paramètres.
+SecurBot prend en charge le français. La langue est automatiquement détectée pour chaque serveur.
 
 ## 👥 Contribution
 
