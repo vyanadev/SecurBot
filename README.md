@@ -2,7 +2,7 @@
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
 ![Licence](https://img.shields.io/badge/License-GPLv3-blue.svg)
-![Node](https://img.shields.io/badge/Node.js-14.x-green.svg)
+![Node](https://img.shields.io/badge/Node.js-18.20.0.x-green.svg)
 
 > SecurBot est un bot de sécurité avancé pour Discord, conçu pour protéger votre serveur contre les raids, le spam et d'autres menaces tout en offrant une gestion flexible et intuitive.
 
@@ -47,7 +47,6 @@
 
 - `!antiraid` : Configure les paramètres de protection anti-raid
 - `!whitelist` : Gère la liste blanche des utilisateurs de confiance
-- `/serverinfo` : Affiche les informations détaillées du serveur
 
 ## 🌐 Support Multilingue
 
