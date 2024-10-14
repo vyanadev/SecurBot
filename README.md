@@ -1,24 +1,24 @@
-# 🤖 SecurBot - Votre Gardien Discord
+# 🛡️ SecurBot - Votre Gardien Discord Ultime
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
-![Licence](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Licence](https://img.shields.io/badge/License-GPLv3-blue.svg)
 ![Node](https://img.shields.io/badge/Node.js-14.x-green.svg)
 
-> SecurBot est un bot de sécurité avancé pour Discord, conçu pour protéger votre serveur contre les raids, le spam et d'autres menaces.
+> SecurBot est un bot de sécurité avancé pour Discord, conçu pour protéger votre serveur contre les raids, le spam et d'autres menaces tout en offrant une gestion flexible et intuitive.
 
-## ✨ Fonctionnalités
+## ✨ Fonctionnalités Principales
 
-- 🛡️ **Protection Anti-Raid** : Détecte et bloque les tentatives de raid en temps réel
-- 🚫 **Anti-Spam** : Filtre automatiquement les messages spam et sanctionne les spammeurs
-- 🔒 **Vérification des Nouveaux Membres** : Système de vérification personnalisable pour les nouveaux arrivants
-- 📊 **Logs Détaillés** : Enregistre toutes les actions de modération et les tentatives de violation
-- 🎛️ **Panel de Configuration** : Interface intuitive pour personnaliser les paramètres de sécurité
+- 🛡️ **Système Anti-Raid** : Protection automatique contre les raids avec paramètres personnalisables
+- 🔒 **Vérification des Membres** : Système de vérification configurable avec options multiples
+- 👮 **Modération Avancée** : Outils de modération puissants avec système de logs détaillé
+- 🌐 **Support Multilingue** : Prise en charge du français et de l'anglais
+- 🎛️ **Configuration Flexible** : Interface intuitive via commandes slash pour personnaliser chaque aspect
 
 ## 🚀 Installation
 
 1. Clonez ce dépôt
    ```sh
-   git clone https://github.com/votre-username/SecurBot.git
+   git clone https://github.com/Henelio/SecurBot.git
    ```
 2. Installez les dépendances NPM
    ```sh
@@ -27,37 +27,48 @@
 3. Configurez vos variables d'environnement dans un fichier `.env`
    ```
    TOKEN=votre_token_discord
-   PREFIX=!
+   DB_HOST=votre_host_mysql
+   DB_USER=votre_utilisateur_mysql
+   DB_PASSWORD=votre_mot_de_passe_mysql
+   DB_NAME=votre_nom_de_base_de_donnees
    ```
 4. Lancez le bot
    ```sh
    npm start
    ```
 
-## 🛠️ Configuration
+## 🛠️ Configuration et Utilisation
 
-Utilisez la commande `!setup` sur votre serveur pour configurer SecurBot. Suivez les instructions pour personnaliser la protection selon vos besoins.
+- Utilisez `/setprotection` pour configurer les protections de base
+- Personnalisez le système de vérification avec `!verify`
+- Accédez à l'aide complète avec `!help`
 
 ## 📚 Commandes Principales
 
-- `!antiraid` : Configure les paramètres anti-raid
-- `!verify` : Gère le système de vérification
+- `!antiraid` : Configure les paramètres de protection anti-raid
+- `!whitelist` : Gère la liste blanche des utilisateurs de confiance
+- `/serverinfo` : Affiche les informations détaillées du serveur
+
+## 🌐 Support Multilingue
+
+SecurBot prend en charge le français et l'anglais. La langue est automatiquement détectée pour chaque serveur et peut être modifiée via les paramètres.
 
 ## 👥 Contribution
 
 Les contributions, issues et demandes de fonctionnalités sont les bienvenues !
-N'hésitez pas à consulter la page des [issues](https://github.com/votre-username/SecurBot/issues).
+Consultez le fichier [CONTRIBUTING.md](CONTRIBUTING.md) pour les directives de contribution.
 
 ## 📝 Licence
 
-Copyright © 2024 [Henelio](https://github.com/votre-username).
-Ce projet est sous licence [MIT](https://opensource.org/licenses/MIT).
+Copyright © 2024 [Henelio](https://github.com/henelio-dev).
+
+Ce projet est sous licence [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html). Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
 ## 🙏 Remerciements
 
 - [Discord.js](https://discord.js.org/) pour leur excellente bibliothèque
-- Tous nos contributeurs et utilisateurs
+- Tous nos contributeurs et utilisateurs pour leur soutien et leurs retours précieux
 
 ---
 
-_Ce README a été créer avec ❤️ par [Henelio](https://github.com/kefranabg/readme-md-generator)_
+_Ce README a été créé avec ❤️ par [Henelio](https://github.com/Henelio)_
