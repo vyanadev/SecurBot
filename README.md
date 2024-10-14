@@ -52,11 +52,6 @@
 
 SecurBot prend en charge le français. La langue est automatiquement détectée pour chaque serveur.
 
-## 👥 Contribution
-
-Les contributions, issues et demandes de fonctionnalités sont les bienvenues !
-Consultez le fichier [CONTRIBUTING.md](CONTRIBUTING.md) pour les directives de contribution.
-
 ## 📝 Licence
 
 Copyright © 2024 [Henelio](https://github.com/henelio-dev).
