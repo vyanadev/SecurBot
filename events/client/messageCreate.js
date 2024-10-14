@@ -2,7 +2,6 @@ module.exports = async (client, message) => {
     if (message.author.bot) return;
     if (message.channel.type === 1) return;     
 
-    // Récupérer le préfixe et la couleur depuis la base de données
     const [guildSettings] = await client.db.promise().query('SELECT prefix, color FROM guild_settings WHERE guild_id = ?', [message.guild.id]);
     const prefix = guildSettings[0]?.prefix || process.env.DEFAULT_PREFIX;
     const color = guildSettings[0]?.color || process.env.DEFAULT_COLOR;
