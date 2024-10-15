@@ -11,7 +11,7 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle(`Help`)
                 .setColor(color)
-                .setFooter({ text: process.env.BOT_FOOTER || "Nova World" })
+                .setFooter({ text: process.env.BOT_FOOTER })
                 .setDescription("Sélectionnez une catégorie dans le menu déroulant ci-dessous pour voir les commandes correspondantes.");
 
             const selectMenu = new StringSelectMenuBuilder()
