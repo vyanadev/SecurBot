@@ -1,4 +1,4 @@
-const { EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
+const { EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder } = require("discord.js");
 
 module.exports = {
     name: "verify",
@@ -28,7 +28,7 @@ module.exports = {
                 msg.edit({ content: "Le système de vérification a été désactivé", allowedMentions: { repliedUser: false } });
             } else {
                 const msg = await message.reply({ content: `Chargement...`, allowedMentions: { repliedUser: false } });
-                await displayVerifySettings();
+                await displayVerifySettings(msg);
                 setTimeout(() => {
                     message.delete().catch(console.error);
                     msg.delete().catch(console.error);
@@ -39,14 +39,14 @@ module.exports = {
                     if (i.user.id !== message.author.id) return;
                     await i.deferUpdate().catch(console.error);
                     if (i.isStringSelectMenu()) {
-                        const [selectedOption] = verifyOptions.filter(opt => opt.name + "_" + message.id === i.values[0]);
+                        const selectedOption = verifyOptions.find(opt => opt.name + "_" + message.id === i.values[0]);
                         if (selectedOption) {
                             await handleOptionSelection(selectedOption, i);
                         }
                     }
                 });
 
-                async function displayVerifySettings() {
+                async function displayVerifySettings(msg) {
                     const [settings] = await client.db.promise().query('SELECT * FROM verify_settings WHERE guild_id = ?', [message.guild.id]);
                     let array_fields = [];
                     let array_menu = [];
@@ -183,10 +183,7 @@ module.exports = {
                             break;
                     }
                 }
-                    setTimeout(async () => {
-                        await displayVerifySettings();
-                    }, 3000);
-                }
+            }
         } catch (error) {
             console.error("Erreur dans la commande verify:", error);
             message.reply("Une erreur s'est produite lors de l'exécution de la commande.").catch(console.error);
