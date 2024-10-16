@@ -12,7 +12,7 @@
 - 🔒 **Vérification des Membres** : Système de vérification configurable avec options multiples
 - 👮 **Modération Avancée** : Outils de modération puissants avec système de logs détaillé
 - 🌐 **Support Multilingue** : Prise en charge du français et de l'anglais
-- 🎛️ **Configuration Flexible** : Interface intuitive via commandes slash pour personnaliser chaque aspect
+- 🎛️ **Configuration Flexible** : Interface intuitive via commandes préfixe pour personnaliser chaque aspect
 
 ## 🚀 Installation
 
@@ -41,7 +41,6 @@
 ## 🛠️ Configuration et Utilisation
 
 - Retrouver dans le dossier `/database` le fichier `sql` pour le bon fonctionnement du bot.
-- Personnalisez le système de vérification avec `!verify`
 - Accédez à l'aide complète avec `!help`
 
 ## 📚 Commandes Principales
