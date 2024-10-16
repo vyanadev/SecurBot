@@ -18,7 +18,7 @@
 
 1. Clonez ce dépôt
    ```sh
-   git clone https://github.com/Henelio/SecurBot.git
+   git clone https://github.com/vyanadev/SecurBot.git
    ```
 2. Installez les dépendances NPM
    ```sh
@@ -54,7 +54,7 @@ SecurBot prend en charge le français. La langue est automatiquement détectée 
 
 ## 📝 Licence
 
-Copyright © 2024 [Henelio](https://github.com/henelio-dev).
+Copyright © 2024 [Vyana](https://github.com/vyanadev).
 
 Ce projet est sous licence [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html). Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
@@ -65,4 +65,4 @@ Ce projet est sous licence [GNU General Public License v3.0](https://www.gnu.org
 
 ---
 
-_Ce README a été créé avec ❤️ par [Henelio](https://github.com/Henelio)_
+_Ce README a été créé avec ❤️ par [Vyana](https://github.com/Henelio)_
