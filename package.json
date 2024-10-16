@@ -1,6 +1,6 @@
 {
   "name": "securbot-v1",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "SecurBot est un bot de sécurité avancé pour Discord, conçu pour protéger votre serveur contre les raids, le spam et d'autres menaces tout en offrant une gestion flexible et intuitive.",
   "main": "index.js",
   "scripts": {
@@ -14,6 +14,7 @@
     "discord.js": "^14.16.3",
     "dotenv": "^16.4.5",
     "fs": "^0.0.1-security",
+    "moment": "^2.30.1",
     "mysql2": "^3.11.3"
   }
 }
