@@ -8,12 +8,7 @@ module.exports = {
     cooldowns: 5,
     execute: async (client, message, args, prefix, color) => {
         try {
-            // Vérifier si l'utilisateur est un propriétaire du bot
-            const [ownerResult] = await client.db.promise().query('SELECT COUNT(*) AS count FROM bot_owners WHERE user_id = ?', [message.author.id]);
-            if (ownerResult[0].count === 0) return;
-
-            // Si un argument est fourni, afficher l'aide pour cette commande spécifique
-            if (args.length > 0) {
+                if (args.length > 0) {
                 const commandName = args[0].toLowerCase();
                 const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
