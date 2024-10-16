@@ -7,9 +7,7 @@ module.exports = {
     cooldowns: 5,
     execute: async (client, message, args, prefix, color) => {
         try {
-            const [ownerResult] = await client.db.promise().query('SELECT * FROM bot_owners WHERE user_id = ?', [message.author.id]);
-            if (ownerResult.length === 0) return;
-
+            
             const embed = new EmbedBuilder()
                 .addFields(
                     { name: "Ping", value: "Calcul en cours", inline: true },
