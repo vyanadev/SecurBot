@@ -53,8 +53,14 @@ module.exports = {
                 .setURL(process.env.SUPPORT_INVITE)
                 .setStyle(ButtonStyle.Link);
 
+            
+                const linkButton2 = new ButtonBuilder()
+                .setLabel('Invitation Bot')
+                .setURL(process.env.INVITATION_BOT)
+                .setStyle(ButtonStyle.Link);
+
             const row1 = new ActionRowBuilder().addComponents(selectMenu);
-            const row2 = new ActionRowBuilder().addComponents(linkButton);
+            const row2 = new ActionRowBuilder().addComponents(linkButton, linkButton2);
 
             const response = await message.reply({
                 embeds: [embed],
