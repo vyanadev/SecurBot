@@ -181,16 +181,13 @@ module.exports = {
                     createSelectMenu(`${event.name}wl_${i.id}`, "Whitelist Bypass", [
                         { label: `WhitelistBypass On`, value: event.name + "wla_" + i.id, emoji: "👤", description: "Activer la whitelist bypass pour: " + event.name },
                         { label: `WhitelistBypass Off`, value: event.name + "wld_" + i.id, emoji: "👥", description: "Désactiver la whitelist bypass pour: " + event.name },
-                    ])
-                ];
-
-                if (!event.sanction) {
-                    components.push(createSelectMenu(`${event.name}sanction_${i.id}`, "Sanctions", [
+                    ]),
+                    createSelectMenu(`${event.name}sanction_${i.id}`, "Sanctions", [
                         { label: `Derank`, value: event.name + "derank_" + i.id, emoji: "👤", description: "Définir la sanction derank pour: " + event.name },
                         { label: `Kick`, value: event.name + "kick_" + i.id, emoji: "⚡", description: "Définir la sanction kick pour: " + event.name },
                         { label: `Ban`, value: event.name + "ban_" + i.id, emoji: "🔌", description: "Définir la sanction ban pour: " + event.name },
-                    ]));
-                }
+                    ])
+                ];
 
                 components.push(new ActionRowBuilder().addComponents(
                     new ButtonBuilder()
