@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, Collection, GatewayIntentBits } = require('discord.js');
+const { Client, Collection, GatewayIntentBits, REST, Routes } = require('discord.js');
 const { readdirSync } = require('fs');
 const mysql = require('mysql2');
 
@@ -40,6 +40,7 @@ client.db.connect(err => {
 
 client.commands = new Collection();
 client.aliases = new Collection();
+client.slashCommands = new Collection();
 
 const loadCommands = (dir = "./cmd/") => {
     readdirSync(dir).forEach(dirs => {
@@ -55,6 +56,44 @@ const loadCommands = (dir = "./cmd/") => {
     });
 };
 
+
+const loadSlashCommands = (dir = "./SlashCmd/") => {
+    const commands = [];
+
+    readdirSync(dir).forEach(dirs => {
+        const commandFiles = readdirSync(`${dir}/${dirs}/`).filter(files => files.endsWith(".js"));
+
+        for (const file of commandFiles) {
+            const command = require(`${dir}/${dirs}/${file}`);
+            if (command.data && command.execute) {
+                client.slashCommands.set(command.data.name, command);
+                commands.push(command.data.toJSON());
+                console.log(`> Commande slash chargée ${command.data.name} [${dirs}]`);
+            } else {
+                console.log(`[AVERTISSEMENT] La commande ${file} est mal formée.`);
+            }
+        }
+    });
+
+    const rest = new REST({ version: '10' }).setToken(process.env.BOT_TOKEN);
+
+    (async () => {
+        try {
+            console.log('Début du rafraîchissement des commandes slash (/).');
+
+            await rest.put(
+                Routes.applicationCommands(process.env.CLIENTID),
+                { body: commands },
+            );
+
+            console.log('Commandes slash (/) rechargées avec succès.');
+        } catch (error) {
+            console.error(error);
+        }
+    })();
+};
+
+
 const loadEvents = (dir = "./events/") => {
     readdirSync(dir).forEach(dirs => {
         const events = readdirSync(`${dir}/${dirs}/`).filter(files => files.endsWith(".js"));
@@ -69,5 +108,6 @@ const loadEvents = (dir = "./events/") => {
 
 loadEvents();
 loadCommands();
+loadSlashCommands();
 
 client.login(process.env.BOT_TOKEN);
