@@ -8,7 +8,7 @@ module.exports = {
     cooldowns: 5,
     execute: async (client, message, args, prefix, color) => {
         try {
-                if (args.length > 0) {
+            if (args.length > 0) {
                 const commandName = args[0].toLowerCase();
                 const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
@@ -32,14 +32,16 @@ module.exports = {
 
             const embed = new EmbedBuilder()
                 .setTitle(`Aide du Bot`)
+                .setThumbnail(client.user.displayAvatarURL())
                 .setColor(color)
                 .setFooter({ text: process.env.BOT_FOOTER })
-                .setDescription(`Sélectionnez une catégorie dans le menu déroulant ci-dessous pour voir les commandes correspondantes.\nPour obtenir de l'aide sur une commande spécifique, utilisez \`${prefix}help <nom de la commande>\`.`);
+                .setDescription(`Sélectionnez une catégorie dans le menu déroulant ci-dessous pour voir les commandes correspondantes.\n\nPour obtenir de l'aide sur une commande spécifique, utilisez \`${prefix}help <nom de la commande>\`.\n\nJe posséde \`${client.commands.size} commandes\`.`);
 
             const categories = [
                 { label: 'Antiraid', description: 'Commandes liées à l\'antiraid', value: 'antiraid', emoji: '🛡️' },
                 { label: 'Modération', description: 'Commandes de modération', value: 'moderation', emoji: '🛠️' },
                 { label: 'Misc', description: 'Commandes diverses', value: 'misc', emoji: '📌' },
+                { label: 'Fun', description: 'Commandes de jeux et de divertissement', value: 'fun', emoji: '🎉' },
                 { label: 'Owner', description: 'Commandes réservées aux propriétaires', value: 'owner', emoji: '👑' }
             ];
 
@@ -51,12 +53,13 @@ module.exports = {
             const linkButton = new ButtonBuilder()
                 .setLabel('Support Discord')
                 .setURL(process.env.SUPPORT_INVITE)
+                .setEmoji('📎')
                 .setStyle(ButtonStyle.Link);
 
-            
                 const linkButton2 = new ButtonBuilder()
                 .setLabel('Invitation Bot')
                 .setURL(process.env.INVITATION_BOT)
+                .setEmoji('📎')
                 .setStyle(ButtonStyle.Link);
 
             const row1 = new ActionRowBuilder().addComponents(selectMenu);
@@ -81,14 +84,8 @@ module.exports = {
                         antiraid: `
 \`${prefix}antiraid [on/off/max/config]\` - Configure les paramètres généraux de l'antiraid
 \`${prefix}whitelist <add/clear/list/remove>\` - Gère la liste blanche de l'antiraid
-\`${prefix}antibot [on/off]\` - Active ou désactive la protection contre l'ajout de bots
-\`${prefix}antichannel [on/off]\` - Active ou désactive la protection contre la création/suppression de salons
-\`${prefix}antiwebhook [on/off]\` - Active ou désactive la protection contre la création de webhooks
-\`${prefix}antieveryone [on/off]\` - Active ou désactive la protection contre les mentions @everyone
-\`${prefix}antiban [on/off]\` - Active ou désactive la protection contre les bannissements en masse
+Pour plus de détails sur une commande, utilisez \`${prefix}help <nom de la commande>\``,
 
-Pour plus de détails sur une commande, utilisez \`${prefix}help <nom de la commande>\`
-`,
 moderation: `
 \`${prefix}ban <@utilisateur> [raison]\` - Bannir un utilisateur du serveur
 \`${prefix}kick <@utilisateur> [raison]\` - Expulser un utilisateur du serveur
@@ -98,9 +95,13 @@ moderation: `
 \`${prefix}unwarn <@utilisateur> <ID avertissement>\` - Retirer un avertissement
 \`${prefix}warnlist [@utilisateur]\` - Afficher la liste des avertissements d'un utilisateur
 \`${prefix}lock [on/off]\` - Verrouiller ou déverrouiller un canal
+\`${prefix}slowmode <durée>\` - Définit le mode lent dans un canal
+\`${prefix}nuke\` - Recrée le canal actuel
+\`${prefix}role <@utilisateur> <@rôle>\` - Ajoute ou retire un rôle à un utilisateur
+\`${prefix}lockdown <on/off>\` - Verrouille ou déverrouille tous les canaux du serveur
+\`${prefix}voicemove <ID source> <ID destination>\` - Déplace tous les membres d'un salon vocal vers un autre
 
-Pour plus de détails sur une commande, utilisez \`${prefix}help <nom de la commande>\`
-`,
+Pour plus de détails sur une commande, utilisez \`${prefix}help <nom de la commande>\``,
                         misc: `
 \`${prefix}help\` - Affiche ce message d'aide
 \`${prefix}ping\` - Vérifie la latence du bot
@@ -110,15 +111,21 @@ Pour plus de détails sur une commande, utilisez \`${prefix}help <nom de la comm
 \`${prefix}banner [@utilisateur]\` - Affiche la bannière d'un utilisateur
 \`${prefix}avatar [@utilisateur]\` - Affiche l'avatar d'un utilisateur
 
-Pour plus de détails sur une commande, utilisez \`${prefix}help <nom de la commande>\`
-`,
+Pour plus de détails sur une commande, utilisez \`${prefix}help <nom de la commande>\``,
+
+fun: `
+\`${prefix}8ball <question>\` - Pose une question à la boule magique
+\`${prefix}coinflip\` - Lance une pièce
+\`${prefix}rps <pierre|papier|ciseaux>\` - Joue à pierre-papier-ciseaux contre le bot
+\`${prefix}meme\` - Affiche un meme aléatoire
+\`${prefix}joke\` - Raconte une blague
+
+Pour plus de détails sur une commande, utilisez \`${prefix}help <nom de la commande>\``,
                         owner: `
 \`${prefix}blacklist <add/clear/list/remove>\` - Gère la liste noire du bot
 \`${prefix}owner <add/clear/list/remove>\` - Gère les propriétaires du bot
 
-Pour plus de détails sur une commande, utilisez \`${prefix}help <nom de la commande>\`
-`
-                    };
+Pour plus de détails sur une commande, utilisez \`${prefix}help <nom de la commande>\``};
 
                     const newEmbed = new EmbedBuilder()
                         .setTitle(`Aide - ${category.charAt(0).toUpperCase() + category.slice(1)}`)
